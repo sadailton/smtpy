@@ -1,0 +1,7 @@
+{
+    "servidor_smtp": "",
+    "porta": "587",
+    "usuario": "",
+    "senha": "",
+    "remetente": ""
+}
