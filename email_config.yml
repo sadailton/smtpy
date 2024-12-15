@@ -1,0 +1,15 @@
+---
+# Configuração do servidor SMTP
+servidor_smtp: ""
+porta: "587"
+usuario: ""
+senha: ""
+remetente: ""
+
+# Arquivo CSV contendo a lista de destinatários
+# O programa espera um arquivo contento os campos: nome, sobrenome, email
+lista_contatos: "contatos.csv"
+
+# Arquivo de log
+arquivo_log: "envio_email_log.csv"
+...

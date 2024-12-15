@@ -48,7 +48,11 @@ def anexa_arquivo(mensagem, caminho_anexo, nome_anexo) -> None:
             return False
 
         # A função unidecode() retira os acentos e cedilhas de uma string
-        nome_anexo = unidecode(nome_anexo) + extensao_arquivo
+        
+        if nome_anexo == '':
+            nome_anexo = unidecode(nome_anexo) 
+        else:
+            nome_anexo = unidecode(nome_anexo) + extensao_arquivo
         
         anexo.add_header('Content-Disposition', f'attachment; filename={ nome_anexo }') 
 
@@ -177,7 +181,20 @@ def log_failed_email_delivery_from_inbox(destinatario, assunto, email_body):
    grava_csv(cabecalho, objeto, arquivo_log)
 
 
-def registrar_status_envio(dados: object, arquivo: str):
+def registrar_status_envio(dados: dict, arquivo_log: str = 'envio_email_log.csv') -> None:
+    """Registro de log do envio de e-mail.
+
+    Args:
+        dados (dict): Dicionario contendo os campos do arquivo de log.
+        Exemplo de dicionario: 
+        log_info: dict = {'data': '',
+                    'hora': '',
+                    'nome': '',
+                    'destinatario': '',
+                    'status': ''
+                    }
+        arquivo_log (str, optional): Nome do arquivo de log. Defaults to 'envio_email_log.csv'.
+    """
     agora = datetime.now()
     data = agora.strftime("%d-%m-%Y")
     hora = agora.strftime("%H:%M:%S")
@@ -185,7 +202,7 @@ def registrar_status_envio(dados: object, arquivo: str):
     dados["data"] = data
     dados["hora"] = hora
 
-    json_to_csv(dados, arquivo)
+    json_to_csv(dados, f"logs/{arquivo_log}")
 
 
 '''
