@@ -5,8 +5,8 @@
 
 #### Instalando as dependencias
 
-[!NOTE]
-É altamente recomendado executar este projeto em um ambiente virtual.
+> [!NOTE]
+> É altamente recomendado executar este projeto em um ambiente virtual.
 
 ```
 pip install -r requirements.txt
@@ -16,8 +16,8 @@ pip install -r requirements.txt
 
 O arquivo `email_config.yml` contém a configuração do servidor de e-mail utilizado para o disparo de e-mails. Por padrão o envio de e-mail é feito usando a porta 587 que é o smtp seguro.
 
-[!WARNING]
-Essa biblioteca não suporta envio de e-mail usando smtp sem TLS (porta 25).
+> [!WARNING]
+> Essa biblioteca não suporta envio de e-mail usando smtp sem TLS (porta 25).
 
 ```yml
 # Configuração do servidor SMTP
@@ -51,13 +51,13 @@ Ciclano,de Tal,ciclano.tal@email.com
 
 Os logs de envio serão salvos no arquivo definido na variável `arquivo_log: ` no arquivo de configuração. Se a variável não for definida, será gerado um arquivo com o nome de `envio_email_log.csv` por padrão.
 
-[!NOTE]
-O arquivo de log é salvo dentro da pasta `logs`.
+> [!NOTE]
+> O arquivo de log é salvo dentro da pasta `logs`.
 
 Abaixo um exemplo do conteúdo do arquivo de log:
 
-[!NOTE]
-Os campos `data` e `hora` são preenchidos automáticamente obtidos do sistema.
+> [!NOTE]
+> Os campos `data` e `hora` são preenchidos automáticamente obtidos do sistema.
 
 ```csv
 data,hora,nome,destinatario,status
